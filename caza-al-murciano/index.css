@@ -114,3 +114,19 @@ button {
 .josemi--sm {
   max-width: 150px;
 }
+
+.hammer {
+  position: fixed;
+  width: 100px;
+  margin-top: -40px;
+  margin-left: -20px;
+  pointer-events: none;
+}
+
+
+
+.hammer--pressed {
+  transform: rotate(45deg);
+}
+
+

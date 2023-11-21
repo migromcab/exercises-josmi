@@ -69,3 +69,23 @@ document.querySelectorAll('.josemi').forEach((josemiNode) => {
     document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + pointsToAdd;
   })
 });
+
+
+const hammerNode = document.querySelector('.hammer')
+
+document.addEventListener('mousemove', (event) => {
+
+  const clientX = event.clientX;
+  const clientY = event.clientY;
+
+  hammerNode.style.top = clientY;
+  hammerNode.style.left = clientX;
+});
+
+document.addEventListener('mousedown', () => {
+  hammerNode.classList.add('hammer--pressed');
+})
+
+document.addEventListener('mousedown', () => {
+    hammerNode.classList.remove('hammer--pressed');
+})
