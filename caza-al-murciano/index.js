@@ -71,18 +71,16 @@ function startGame() {
 }
 
 
+document.querySelector('.cta--start').addEventListener('click', function() {
+  startGame();
+  document.querySelector('.cta--start').style.display='none';
+});
 
-  const totalPointsNode = document.querySelector ('#totalPoints')
-  console.log(totalPointsNode.innerText);
-
-  document.querySelectorAll('.josemi').forEach(josemiNode => {
-  josemiNode.addEventListener('click'), () => {
-  let totalPoints = Number(totalPointsNode.innerText) + 1;
-
+document.querySelectorAll('.josemi').forEach((josemiNode) => {
+  josemiNode.addEventListener('click', function() {
+    document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1;
     if (josemiNode.classList.contains('josemi--sm')) {
-      totalPoints = totalPoints + 2;
+      document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1;
     }
-
-  totalPointsNode.innerText = totalPoints;
-  }
   })
+}); 
