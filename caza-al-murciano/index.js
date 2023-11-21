@@ -1,3 +1,7 @@
+let butttonText = document.getElementById('button-text')
+butttonText.addEventListener("click",startGame)
+
+
 function startGame() {
   const availableClasses = [
     'josemi--t',
