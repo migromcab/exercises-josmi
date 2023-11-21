@@ -1,4 +1,4 @@
-let butttonText = document.getElementById('button-text')
+var butttonText = document.getElementById('button-text')
 butttonText.addEventListener("click",startGame)
 
 
