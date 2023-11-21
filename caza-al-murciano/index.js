@@ -60,14 +60,17 @@ function startGame() {
 
 document.querySelector('.cta--start').addEventListener('click', function() {
   startGame();
-  setTimeout(() => {
-    clearInterval(gameIntervalid);
-    ctaButton.style.display = 'inline-block';
-    pointsToAdd.innerText = 0;
-  },15000);
+ 
 
   document.querySelector('.cta--start').style.display='none';
 });
+
+setTimeout(() => {
+  clearInterval(gameIntervalid);
+  ctaButton.style.display = 'inline-block';
+  pointsToAdd.innerText = 0;
+},15000);
+
 
 document.querySelectorAll('.josemi').forEach((josemiNode) => {
   josemiNode.addEventListener('click', function() {
