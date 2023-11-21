@@ -63,7 +63,8 @@ document.querySelector('.cta--start').addEventListener('click', function() {
   setTimeout(() => {
     clearInterval(gameIntervalid);
     ctaButton.style.display = 'inline-block';
-  },10000);
+    pointsToAdd.innerText = 0;
+  },15000);
 
   document.querySelector('.cta--start').style.display='none';
 });
