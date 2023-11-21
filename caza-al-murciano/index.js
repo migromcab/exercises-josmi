@@ -1,16 +1,3 @@
-// otra manera de llamar a la función
-
-// const ctaButton = document.querySelector ( '.cta--start');
-// ctaButton.addEventListener('click',startGame, ctaButton.style.display = 'none')
-
-
-
-
-
-var butttonText = document.getElementById('button-text')
-butttonText.addEventListener("click",startGame)
-
-
 function startGame() {
   const availableClasses = [
     'josemi--t',
@@ -20,7 +7,8 @@ function startGame() {
     'josemi--corner-tl',
     'josemi--corner-tr'
   ];
-  const availableTimers = [1000, 1200, 1500, 2000, 2500, 3000];
+  const availableTimers = [10000];
+  // 1000, 1200, 1500, 2000, 2500, 3000
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -70,7 +58,6 @@ function startGame() {
   return setInterval(pickJosemi, 1000);
 }
 
-
 document.querySelector('.cta--start').addEventListener('click', function() {
   startGame();
   document.querySelector('.cta--start').style.display='none';
@@ -78,9 +65,7 @@ document.querySelector('.cta--start').addEventListener('click', function() {
 
 document.querySelectorAll('.josemi').forEach((josemiNode) => {
   josemiNode.addEventListener('click', function() {
-    document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1;
-    if (josemiNode.classList.contains('josemi--sm')) {
-      document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1;
-    }
+    let pointsToAdd = josemiNode.classList.contains('josemi--sm') ? 2 : 1;
+    document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + pointsToAdd;
   })
-}); 
+});
