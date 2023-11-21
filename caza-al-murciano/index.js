@@ -80,7 +80,7 @@ function startGame() {
   let totalPoints = Number(totalPointsNode.innerText) + 1;
 
     if (josemiNode.classList.contains('josemi--sm')) {
-      totalPoints = totalPoints + 1;
+      totalPoints = totalPoints + 2;
     }
 
   totalPointsNode.innerText = totalPoints;
