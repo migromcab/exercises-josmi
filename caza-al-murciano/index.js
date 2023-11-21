@@ -60,6 +60,11 @@ function startGame() {
 
 document.querySelector('.cta--start').addEventListener('click', function() {
   startGame();
+  setTimeout(() => {
+    clearInterval(gameIntervalid);
+    ctaButton.style.display = 'inline-block';
+  },10000);
+
   document.querySelector('.cta--start').style.display='none';
 });
 
@@ -86,6 +91,6 @@ document.addEventListener('mousedown', () => {
   hammerNode.classList.add('hammer--pressed');
 })
 
-document.addEventListener('mousedown', () => {
+document.addEventListener('mouseup', () => {
     hammerNode.classList.remove('hammer--pressed');
 })
