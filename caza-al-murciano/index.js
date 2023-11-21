@@ -1,3 +1,12 @@
+// otra manera de llamar a la función
+
+// const ctaButton = document.querySelector ( '.cta--start');
+// ctaButton.addEventListener('click',startGame, ctaButton.style.display = 'none')
+
+
+
+
+
 var butttonText = document.getElementById('button-text')
 butttonText.addEventListener("click",startGame)
 
@@ -63,12 +72,17 @@ function startGame() {
 
 
 
-document.querySelector('.cta--start').addEventListener('click', startGame);
+  const totalPointsNode = document.querySelector ('#totalPoints')
+  console.log(totalPointsNode.innerText);
 
-document.querySelector('.josemi').addEventListener('click', function(){
-  document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1
-});
+  document.querySelectorAll('.josemi').forEach(josemiNode => {
+  josemiNode.addEventListener('click'), () => {
+  let totalPoints = Number(totalPointsNode.innerText) + 1;
 
-document.querySelector('.josemi--sm').addEventListener('click', function(){
-  document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 2
-});
+    if (josemiNode.classList.contains('josemi--sm')) {
+      totalPoints = totalPoints + 1;
+    }
+
+  totalPointsNode.innerText = totalPoints;
+  }
+  })
