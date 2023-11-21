@@ -60,3 +60,15 @@ function startGame() {
   pickJosemi();
   return setInterval(pickJosemi, 1000);
 }
+
+
+
+document.querySelector('.cta--start').addEventListener('click', startGame);
+
+document.querySelector('.josemi').addEventListener('click', function(){
+  document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 1
+});
+
+document.querySelector('.josemi--sm').addEventListener('click', function(){
+  document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + 2
+});
