@@ -35,6 +35,10 @@ button {
   background: #2c3144;
 }
 
+.clasificación {
+  background: grey;
+}
+
 .josemi {
   user-select: none;
   position: fixed;
@@ -131,12 +135,22 @@ button {
 
 
 .clas__list {
-  
+  display: flex;
   color: red;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  border: solid 1px red;
+  
 }
 
 .color-red {
   color: red;
+  
 }
+
+.section {
+  border: solid 1px red;
+  padding: 10px;
+}
+
