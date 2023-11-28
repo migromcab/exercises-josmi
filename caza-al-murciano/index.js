@@ -69,6 +69,9 @@ setTimeout(() => {
   clearInterval(gameIntervalid);
   ctaButton.style.display = 'inline-block';
   pointsToAdd.innerText = 0;
+  const container = document.querySelector('.fireworks')
+  const fireworks = new Fireworks.default(container)
+  fireworks.start()
 },15000);
 
 
@@ -100,4 +103,3 @@ document.addEventListener('mouseup', () => {
 })
 
 
-kjdnfvjidfnvh
