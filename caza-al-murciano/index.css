@@ -130,3 +130,13 @@ button {
 }
 
 
+.clas__list {
+  
+  color: red;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-red {
+  color: red;
+}

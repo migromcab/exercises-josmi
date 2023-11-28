@@ -65,14 +65,29 @@ document.querySelector('.cta--start').addEventListener('click', function() {
   document.querySelector('.cta--start').style.display='none';
 });
 
-setTimeout(() => {
-  clearInterval(gameIntervalid);
-  ctaButton.style.display = 'inline-block';
-  pointsToAdd.innerText = 0;
-  const container = document.querySelector('.fireworks')
-  const fireworks = new Fireworks.default(container)
-  fireworks.start()
-},15000);
+
+const ctaButton = document.querySelector ('.cta--start');
+ctaButton.addEventListener('click', function () {
+  const gameIntervalid = startGame ();
+  ctaButton.style.display = 'none';
+
+
+
+  setTimeout(() => {
+    clearInterval(gameIntervalid);
+    ctaButton.style.display = 'inline-block';
+    pointsToAdd.innerText = 0;
+    const container = document.querySelector('.fireworks')
+    const fireworks = new Fireworks.default(container)
+    fireworks.start();
+    
+  },10000);
+
+  
+  
+})
+
+
 
 
 document.querySelectorAll('.josemi').forEach((josemiNode) => {
