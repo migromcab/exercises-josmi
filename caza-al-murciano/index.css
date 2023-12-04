@@ -35,6 +35,12 @@ button {
   background: #2c3144;
 }
 
+.cta--ranking {
+  background: #cecece;
+  color: black;
+  margin-left: 12px;
+}
+
 .clasificación {
   background: grey;
 }
@@ -154,3 +160,9 @@ button {
   padding: 10px;
 }
 
+.username-input {
+  width: 600px;
+  display: inline-block;
+  margin-bottom: 48px;
+  padding: 12px 24px;
+}

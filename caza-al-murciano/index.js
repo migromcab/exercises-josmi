@@ -1,3 +1,8 @@
+function JosemisHunter () {
+  
+}
+
+
 function startGame() {
   const availableClasses = [
     'josemi--t',
@@ -58,33 +63,23 @@ function startGame() {
   return setInterval(pickJosemi, 1000);
 }
 
-document.querySelector('.cta--start').addEventListener('click', function() {
-  startGame();
- 
-
-  document.querySelector('.cta--start').style.display='none';
-});
-
+const container = document.querySelector('.fireworks');
+const fireworks = new Fireworks.default(container);
 
 const ctaButton = document.querySelector ('.cta--start');
 ctaButton.addEventListener('click', function () {
+  totalPoints.innerText = 0;
+  fireworks.stop();
   const gameIntervalid = startGame ();
   ctaButton.style.display = 'none';
-
 
 
   setTimeout(() => {
     clearInterval(gameIntervalid);
     ctaButton.style.display = 'inline-block';
-    pointsToAdd.innerText = 0;
-    const container = document.querySelector('.fireworks')
-    const fireworks = new Fireworks.default(container)
-    fireworks.start();
+    fireworks.start()
     
-  },10000);
-
-  
-  
+  },5000);
 })
 
 
@@ -92,7 +87,7 @@ ctaButton.addEventListener('click', function () {
 
 document.querySelectorAll('.josemi').forEach((josemiNode) => {
   josemiNode.addEventListener('click', function() {
-    let pointsToAdd = josemiNode.classList.contains('josemi--sm') ? 2 : 1;
+    const pointsToAdd = josemiNode.classList.contains('josemi--sm') ? 2 : 1;
     document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + pointsToAdd;
   })
 });
@@ -116,5 +111,11 @@ document.addEventListener('mousedown', () => {
 document.addEventListener('mouseup', () => {
     hammerNode.classList.remove('hammer--pressed');
 })
+
+
+
+document.querySelector('.username-input').addEventListener('input', function (event) {
+  ctaButtonNode.disabled = !event.target.value;
+});
 
 
