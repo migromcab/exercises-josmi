@@ -1,0 +1,19 @@
+.pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    justify-content: space-between;
+  }
+  
+  .pokemon {
+    padding: 12px;
+  }
+
+  .search {
+        height: 40;
+        margin-bottom: 36;
+        max-width: 600;
+        width: 100%;
+        padding: 0 12;
+
+    }
