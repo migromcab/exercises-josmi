@@ -1,5 +1,6 @@
-var butttonText = document.getElementById('button-text')
-butttonText.addEventListener("click",startGame)
+function JosemisHunter () {
+  
+}
 
 
 function startGame() {
@@ -11,7 +12,8 @@ function startGame() {
     'josemi--corner-tl',
     'josemi--corner-tr'
   ];
-  const availableTimers = [1000, 1200, 1500, 2000, 2500, 3000];
+  const availableTimers = [10000];
+  // 1000, 1200, 1500, 2000, 2500, 3000
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -60,3 +62,60 @@ function startGame() {
   pickJosemi();
   return setInterval(pickJosemi, 1000);
 }
+
+const container = document.querySelector('.fireworks');
+const fireworks = new Fireworks.default(container);
+
+const ctaButton = document.querySelector ('.cta--start');
+ctaButton.addEventListener('click', function () {
+  totalPoints.innerText = 0;
+  fireworks.stop();
+  const gameIntervalid = startGame ();
+  ctaButton.style.display = 'none';
+
+
+  setTimeout(() => {
+    clearInterval(gameIntervalid);
+    ctaButton.style.display = 'inline-block';
+    fireworks.start()
+    
+  },5000);
+})
+
+
+
+
+document.querySelectorAll('.josemi').forEach((josemiNode) => {
+  josemiNode.addEventListener('click', function() {
+    const pointsToAdd = josemiNode.classList.contains('josemi--sm') ? 2 : 1;
+    document.querySelector('#totalPoints').innerText = Number(document.querySelector('#totalPoints').innerText) + pointsToAdd;
+  })
+});
+
+
+const hammerNode = document.querySelector('.hammer')
+
+document.addEventListener('mousemove', (event) => {
+
+  const clientX = event.clientX;
+  const clientY = event.clientY;
+
+  hammerNode.style.top = clientY;
+  hammerNode.style.left = clientX;
+});
+
+document.addEventListener('mousedown', () => {
+  hammerNode.classList.add('hammer--pressed');
+})
+
+document.addEventListener('mouseup', () => {
+    hammerNode.classList.remove('hammer--pressed');
+})
+
+
+
+document.querySelector('.username-input').addEventListener('input', function (event) {
+  ctaButtonNode.disabled = !event.target.value;
+});
+
+

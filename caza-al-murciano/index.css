@@ -35,6 +35,16 @@ button {
   background: #2c3144;
 }
 
+.cta--ranking {
+  background: #cecece;
+  color: black;
+  margin-left: 12px;
+}
+
+.clasificación {
+  background: grey;
+}
+
 .josemi {
   user-select: none;
   position: fixed;
@@ -113,4 +123,46 @@ button {
 
 .josemi--sm {
   max-width: 150px;
+}
+
+.hammer {
+  position: fixed;
+  width: 100px;
+  margin-top: -40px;
+  margin-left: -20px;
+  pointer-events: none;
+}
+
+
+
+.hammer--pressed {
+  transform: rotate(45deg);
+}
+
+
+.clas__list {
+  display: flex;
+  color: red;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  border: solid 1px red;
+  
+}
+
+.color-red {
+  color: red;
+  
+}
+
+.section {
+  border: solid 1px red;
+  padding: 10px;
+}
+
+.username-input {
+  width: 600px;
+  display: inline-block;
+  margin-bottom: 48px;
+  padding: 12px 24px;
 }

@@ -1,21 +1,31 @@
 <html>
   <head>
     <meta title="Caza al murciano" />
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="./normalize.css" />
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body class="content">
-    <div class="scoring">
+    <div class="scoring fireworks">
       <h1>Puntuación total</h1>
       <h2 id="totalPoints">0</h2>
       <p class="instructions">
         Cada vez que veas una versión de Josemi, dale con el ratón para sumar un punto. Los josemis soleados valen
         doble!
       </p>
-      <button id="button-text" class="cta cta--start">Empezar</button>
+
+      <div>
+        <input class="username-input" type="text" placeholder="Escribe tu nombre panita" />
+      </div>
+
+
+      <button class="cta cta--start">Empezar</button>
+      <button class="cta cta--ranking" href = "./clasificación.html">Ver clasificación</button>
     </div>
     <div class="josemis">
       <button class="josemi">
+
+
         <img src="./assets/josemi-travieso.png" />
       </button>
       <button class="josemi">
@@ -30,9 +40,17 @@
       <button class="josemi">
         <img src="./assets/josemi-travieso.png" />
       </button>
-    </div>
 
-    <script src="./index.js"></script>
+      <div>
+      <img class="hammer hammer--pressed" src="./assets/hammer.png" alt="martillo">
+      </div>
+    </div>
+   
   </body>
+   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+   <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script src="./index.js"></script>
 </html>
+
+
