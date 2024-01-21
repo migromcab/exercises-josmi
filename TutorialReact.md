@@ -466,3 +466,109 @@ export default function DrinkList() {
 }
 
 
+Renderizado de listas 
+
+
+Desafío 1
+
+import { people } from './data.js';
+import { getImageUrl } from './utils.js';
+
+export default function List() {
+  const person = people.filter ( person => person.profession === 'químico')
+  const everyoneelse = people.filter (person => person.profession !== 'químico');
+  return (
+    <article>
+      <h1>Científicos</h1>
+      <h2>Químicos</h2>
+      <ul>
+        {chemists.map(person =>
+          <li key={person.id}>
+            <img
+              src={getImageUrl(person)}
+              alt={person.name}
+            />
+            <p>
+              <b>{person.name}:</b>
+              {' ' + person.profession + ' '}
+              conocido/a por {person.accomplishment}
+            </p>
+          </li>
+        )}
+      </ul>
+      <h2>Todos los demás</h2>
+      <ul>
+        {everyoneElse.map(person =>
+          <li key={person.id}>
+            <img
+              src={getImageUrl(person)}
+              alt={person.name}
+            />
+            <p>
+              <b>{person.name}:</b>
+              {' ' + person.profession + ' '}
+              conocido/a por {person.accomplishment}
+            </p>
+          </li>
+        )}
+      </ul>
+    </article>
+  );
+}
+
+
+Desafío 2
+
+
+
+Mantener los componentes puros
+
+
+Desafío 1 
+
+export default function Clock({ time }) {
+  let hours = time.getHours();
+  let className;
+  if (hours >= 0 && hours <= 6) {
+    className = 'night';
+  } else {
+    className = 'day';
+  }
+  return (
+    <h1 className={className}>
+      {time.toLocaleTimeString()}
+    </h1>
+  );
+}
+
+Desafío 2
+
+import Panel from './Panel.js';
+import { getImageUrl } from './utils.js';
+
+export default function Profile({ person }) {
+  return (
+    <Panel>
+      <Header person={person} />
+      <Avatar person={person} />
+    </Panel>
+  )
+}
+
+function Header({ person }) {
+  return <h1>{person.name}</h1>;
+}
+
+function Avatar({ person }) {
+  return (
+    <img
+      className="avatar"
+      src={getImageUrl(person)}
+      alt={person.name}
+      width={50}
+      height={50}
+    />
+  );
+
+  
+
