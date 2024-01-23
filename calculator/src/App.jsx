@@ -27,6 +27,11 @@ function App() {
   const [value, setValue] = useState("0");
 
   const handleClick = (newValue) => {
+    if (newValue === "." && !value.includes(".")) {
+      setValue(value + newValue);
+      return;
+    }
+
     if (typeof newValue !== "number") {
       return;
     }
