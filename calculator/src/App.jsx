@@ -32,7 +32,7 @@ function App() {
       return;
     }
 
-    
+        
 
     if (newValue === "." && !value.includes(".")) {
       setValue(value + newValue);
