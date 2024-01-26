@@ -28,11 +28,9 @@ function App() {
 
   const handleClick = (newValue) => {
     if (newValue === "C") {
-      setValue(useState("0"));
+      setValue(value === "0");
       return;
     }
-
-        
 
     if (newValue === "." && !value.includes(".")) {
       setValue(value + newValue);
