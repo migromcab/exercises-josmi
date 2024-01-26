@@ -27,8 +27,13 @@ function App() {
   const [value, setValue] = useState("0");
 
   const handleClick = (newValue) => {
+    if (newValue === "+-") {
+      setValue(-value);
+      return;
+    }
+
     if (newValue === "C") {
-      setValue(value === "0");
+      setValue("0");
       return;
     }
 
