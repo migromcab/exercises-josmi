@@ -1,6 +1,17 @@
 import { useState } from "react";
 import "./App.scss";
 
+/*
+ 
+Si escribo un símbolo lo pinto
+Si escribo otro símbolo sin escribir un número => lo reemplazo
+Si escribo un númeor después del símbolo => Se pinta el número seguido del número
+Si le doy a otro símbolo cuando hay un símbolo num => resolver y pinto solución + símbolo que le he dado
+Si tengo num símbolo num y le doy a igual => se realiza la operación y pinta el resultado
+Si tengo num símbolo y le doy a igual => se hace la operación como si los dos números fueran el mismo.
+Si tengo num símbolo y le doy a la C => se resetea todo 
+
+*/
 const actions = [
   "C",
   "+-",
@@ -23,60 +34,82 @@ const actions = [
   "=",
 ];
 
-/*
- 
-Si escribo un símbolo lo pinto
-Si escribo otro símbolo sin escribir un número => lo reemplazo
-Si escribo un númeor después del símbolo => Se pinta el número seguido del número
-Si le doy a otro símbolo cuando hay un símbolo num => resolver y pinto solución + símbolo que le he dado
-Si tengo num símbolo num y le doy a igual => se realiza la operación y pinta el resultado
-Si tengo num símbolo y le doy a igual => se hace la operación como si los dos números fueran el mismo.
-Si tengo num símbolo y le doy a la C => se resetea todo 
-
-*/
-
 function App() {
   const [value, setValue] = useState("0");
   const [operation, setOperation] = useState();
 
-  const handleClick = (newValue) => {
-    if (newValue === "%") {
-      setValue((value / 100).toString());
-    }
+  console.log("render", { value, operation });
 
-    if (newValue === "+-") {
-      setValue((value * -1).toString());
-      return;
-    }
-
-    if (newValue === "C") {
+  const handleClick = (actionClicked) => {
+    if (actionClicked === "C") {
       setValue("0");
       return;
     }
 
-    if (newValue === "." && !value.includes(".")) {
-      setValue(value + newValue);
+    if (actionClicked === "+-") {
+      setValue((value * -1).toString());
       return;
     }
 
-    if (typeof newValue !== "number") {
-      const lastChar = value.slice(-1);
-      setOperation(newValue);
+    if (actionClicked === "%") {
+      setValue((value / 100).toString());
+      return;
+    }
 
-      if (("/", "+", "-", "X").includes(lastChar)) {
-        const Valuenew = value.replace(lastChar, newValue);
-        setValue(Valuenew);
+    if (actionClicked === "." && !value.includes(".")) {
+      setValue(value + actionClicked);
+      return;
+    }
+
+    if (actionClicked === "=") {
+      if (typeof operation === "undefined" || operation === "=") {
         return;
       }
 
-      setValue(value + newValue);
+      const numbers = value.split(operation);
+      const num1 = numbers[0];
+      const num2 = !numbers[1] === "" ? num1 : numbers[1];
+
+      switch (operation) {
+        case "X":
+          result = num1 * num2;
+          break;
+
+        case "+":
+          result = num1 + num2;
+          break;
+
+        case "-":
+          result = num1 - num2;
+          break;
+
+        default:
+          result = num1 / num2;
+          break;
+      }
+
+      return;
+    }
+
+    if (typeof actionClicked !== "number") {
+      const lastChar = value.slice(-1);
+      setOperation(actionClicked);
+
+      if (lastChar === operation) {
+        const newValue = value.replace(lastChar, actionClicked);
+        setValue(newValue);
+        return;
+      }
+
+      setValue(value + actionClicked);
+
       return;
     }
 
     if (value === "0") {
-      setValue(newValue.toString());
+      setValue(actionClicked.toString());
     } else {
-      setValue(value + newValue);
+      setValue(value + actionClicked);
     }
   };
 
