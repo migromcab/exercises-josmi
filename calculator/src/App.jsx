@@ -41,6 +41,9 @@ function App() {
   console.log("render", { value, operation });
 
   const handleClick = (actionClicked) => {
+
+    
+
     if (actionClicked === "C") {
       setValue("0");
       return;
@@ -66,9 +69,14 @@ function App() {
         return;
       }
 
-      const numbers = value.split(operation);
-      const num1 = numbers[0];
-      const num2 = !numbers[1] === "" ? num1 : numbers[1];
+
+      const calculate = () => {
+        const numbers = value.split(operation);
+      const num1 = Number(numbers[0]);
+      const num2 = !numbers[1] ? num1 : Number(numbers[1]);
+
+
+      let result;
 
       switch (operation) {
         case "X":
@@ -88,7 +96,8 @@ function App() {
           break;
       }
 
-      return;
+      }
+      setValue(result.toString())
     }
 
     if (typeof actionClicked !== "number") {
@@ -111,6 +120,8 @@ function App() {
     } else {
       setValue(value + actionClicked);
     }
+
+    
   };
 
   return (
