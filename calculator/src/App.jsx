@@ -42,6 +42,11 @@ function App() {
 
   const handleClick = (actionClicked) => {
 
+    if (actionClicked === '=') {
+      setValue('=');
+      calculate();
+      return;
+    }
     
 
     if (actionClicked === "C") {
